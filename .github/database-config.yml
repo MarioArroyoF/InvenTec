@@ -1,0 +1,4 @@
+user: 'dev'
+password: 123456789 
+server: 'inventec.cxcouucoof0v.us-east-1.rds.amazonaws.com'
+database: 'Inventec'
