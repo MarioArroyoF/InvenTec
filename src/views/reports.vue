@@ -109,6 +109,8 @@ export default {
     inventarioDeptoFecha: [],
     impPorDepto: [],
     detalleReporte: true,
+    archivoSeleccionado: null,
+    menuFecha:'',
   }),
   methods: {
     subirArchivo() {
