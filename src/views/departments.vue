@@ -344,7 +344,7 @@ export default {
             switch (this.tipoDataTable) {
                 case 1:
                     axios
-                        .delete(`http://localhost:3000/api/departments/eliminar/${this.elementoEliminar.elementoNombre}`)
+                        .delete(`http://localhost:1433/api/departments/eliminar/${this.elementoEliminar.elementoNombre}`)
                         .then((response) => {
                             this.alertaToast("success", "Departamento eliminado");
 
@@ -363,7 +363,7 @@ export default {
                     break;
                 case 2:
                     axios
-                        .delete(`http://localhost:3000/api/jefes/eliminar/${this.elementoEliminar.elementoNombre}`)
+                        .delete(`http://localhost:1433/api/jefes/eliminar/${this.elementoEliminar.elementoNombre}`)
                         .then((response) => {
                             this.alertaToast("success", "Jefe eliminado");
 
@@ -381,7 +381,7 @@ export default {
                     break;
                 case 3:
                     axios
-                        .delete(`http://localhost:3000/api/areas/eliminar/${this.elementoEliminar.elementoNombre}`)
+                        .delete(`http://localhost:1433/api/areas/eliminar/${this.elementoEliminar.elementoNombre}`)
                         .then((response) => {
                             this.alertaToast("success", "Área eliminada");
 
@@ -440,7 +440,7 @@ export default {
         },
         guardarCambiosDepto() {
             axios
-                .put(`http://localhost:3000/api/departments/setDepto/${this.idDeptoEditar}`, this.nuevoDepartamento)
+                .put(`http://localhost:1433/api/departments/setDepto/${this.idDeptoEditar}`, this.nuevoDepartamento)
                 .then((response) => {
                     this.alertaToast("success", "Departamento actualizado con éxito.");
 
@@ -459,7 +459,7 @@ export default {
         },
         guardarCambiosJefe() {
             axios
-                .put(`http://localhost:3000/api/departments/setJefe/${this.idJefeEditar}`, this.nuevoJefe)
+                .put(`http://localhost:1433/api/departments/setJefe/${this.idJefeEditar}`, this.nuevoJefe)
                 .then((response) => {
                     this.alertaToast("success", "Jefe actualizado con éxito.");
 
@@ -480,7 +480,7 @@ export default {
         },
         guardarCambiosArea() {
             axios
-                .put(`http://localhost:3000/api/departments/setArea/${this.idAreaEditar}`, this.nuevaArea)
+                .put(`http://localhost:1433/api/departments/setArea/${this.idAreaEditar}`, this.nuevaArea)
                 .then((response) => {
                     this.alertaToast("success", "Área actualizada con éxito.");
 
@@ -526,7 +526,7 @@ export default {
         },
         cargarDepartamentoPorId(depClave) {
             axios
-                .get(`http://localhost:3000/api/departments/${depClave}`)
+                .get(`http://localhost:1433/api/departments/${depClave}`)
                 .then((response) => {
 
                     // Carga los datos del activo en el formulario
@@ -544,7 +544,7 @@ export default {
         },
         cargarJefePorId(jefeid) {
             axios
-                .get(`http://localhost:3000/api/jefes/${jefeid}`)
+                .get(`http://localhost:1433/api/jefes/${jefeid}`)
                 .then((response) => {
 
                     // Carga los datos del activo en el formulario
@@ -571,7 +571,7 @@ export default {
         },
         cargarAreaPorId(depClave) {
             axios
-                .get(`http://localhost:3000/api/areas/${depClave}`)
+                .get(`http://localhost:1433/api/areas/${depClave}`)
                 .then(async (response) => {
 
                     // Carga los datos del activo en el formulario
@@ -618,7 +618,7 @@ export default {
             }
 
             axios
-                .post('http://localhost:3000/api/departments/registraDepto', this.nuevoDepartamento)
+                .post('http://localhost:1433/api/departments/registraDepto', this.nuevoDepartamento)
                 .then((response) => {
                     this.alertaToast("success", "Departamento registrado.");
                     this.nuevoDepartamento = {
@@ -657,7 +657,7 @@ export default {
             }
 
             axios
-                .post('http://localhost:3000/api/jefes/registraJefe', this.nuevoJefe)
+                .post('http://localhost:1433/api/jefes/registraJefe', this.nuevoJefe)
                 .then((response) => {
                     this.alertaToast("success", "Jefe registrado.");
                     this.nuevoJefe = {
@@ -705,7 +705,7 @@ export default {
             }
 
             axios
-                .post('http://localhost:3000/api/areas/registraArea', this.nuevaArea)
+                .post('http://localhost:1433/api/areas/registraArea', this.nuevaArea)
                 .then((response) => {
                     this.alertaToast("success", "Área registrada.");
                     this.cargaDatosAreas();
@@ -727,7 +727,7 @@ export default {
             this.mostrarModalAreas = false;
         },
         cargaDatosDeptos() {
-            axios.get('http://localhost:3000/api/departments')
+            axios.get('http://localhost:1433/api/departments')
                 .then(response => {
                     this.departments = response.data;
                 })
@@ -736,7 +736,7 @@ export default {
                 });
         },
         cargaDatosJefes() {
-            axios.get('http://localhost:3000/api/jefes')
+            axios.get('http://localhost:1433/api/jefes')
                 .then(response => {
                     this.jefes = response.data;
                 })
@@ -745,7 +745,7 @@ export default {
                 });
         },
         cargaDatosAreas() {
-            axios.get('http://localhost:3000/api/areas')
+            axios.get('http://localhost:1433/api/areas')
                 .then(response => {
                     this.areas = response.data;
                 })
@@ -755,7 +755,7 @@ export default {
         },
         cargaDatosCombos() {
             // Combo deptos
-            axios.get('http://localhost:3000/api/combo/departments')
+            axios.get('http://localhost:1433/api/combo/departments')
                 .then(response => {
                     this.departamentos = response.data;
                 })
@@ -764,7 +764,7 @@ export default {
                 });
 
             // Combo de jefes
-            axios.get('http://localhost:3000/api/combo/jefes')
+            axios.get('http://localhost:1433/api/combo/jefes')
                 .then(response => {
                     this.jefesCombo = response.data;
                 })

@@ -109,7 +109,7 @@ router.beforeEach(async (to, from, next) => {
      // } else {
         // El usuario es administrador o la ruta no requiere ser administrador
         next();
-     // }
+      //}
     }
   } else if (to.name === 'login' && from.name !== 'login') {
     // El usuario está yendo a la vista de inicio de sesión desde otra vista
@@ -127,7 +127,7 @@ router.beforeEach(async (to, from, next) => {
 
 function obtenTipoUsrSQL(correoElectronico) {
   axios
-    .get(`http://localhost:8080/api/users/validaTipo/${correoElectronico}`)
+    .get(`http://localhost:1433/api/users/validaTipo/${correoElectronico}`)
     .then((response) => {
       UsrTipo = response.data[0].UsrTipo;
 
