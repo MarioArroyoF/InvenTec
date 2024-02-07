@@ -9,14 +9,14 @@ const reports = require('./routes/reports.js');
 const vales = require('./routes/vales.js'); 
 
 const config = {
-  user: 'dev',
-  password: '123456789',
-  server: 'inventec.cxcouucoof0v.us-east-1.rds.amazonaws.com',
-  database: 'Inventec',
+  user: '',
+  password: '',
+  server: '',
+  database: '',
   port:1433,
   options: {
-    encrypt: true, // Puedes probar estableciendo esto en false
-    trustServerCertificate: true // Esta línea desactiva la verificación del certificado
+    encrypt: true, 
+    trustServerCertificate: true 
   }
 };
 
