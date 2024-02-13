@@ -122,7 +122,7 @@ export default {
       const formData = new FormData();
       formData.append('archivo', this.archivoSeleccionado);
 
-      axios.post('http://localhost:1433/api/subirArchivo', formData, {
+      axios.post('http://localhost:3000/api/subirArchivo', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
@@ -150,7 +150,7 @@ export default {
 
       // Obtener los activos por departamento
       try {
-        const response = await axios.get(`http://localhost:1433/api/reportes/impresionesPorDepto/${depclave}`);
+        const response = await axios.get(`http://localhost:3000/api/reportes/impresionesPorDepto/${depclave}`);
         this.impPorDepto = response.data;
         console.log('Impresiones por departamento', this.actPorDepartamento);
       } catch (error) {
@@ -193,7 +193,7 @@ export default {
       if (this.detalleReporte) {
         // Conteo
         try {
-          const response = await axios.get(`http://localhost:1433/api/reportes/inventarioPorDeptoFecha/${depclave}/${selectedDate}`);
+          const response = await axios.get(`http://localhost:3000/api/reportes/inventarioPorDeptoFecha/${depclave}/${selectedDate}`);
           this.inventarioDeptoFecha = response.data;
           console.log('Inventario por depto y fecha', this.actPorDepartamento);
         } catch (error) {
@@ -203,7 +203,7 @@ export default {
       } else {
         // Detalle
         try {
-          const response = await axios.get(`http://localhost:1433/api/reportes/detalleInventario/${depclave}/${selectedDate}`);
+          const response = await axios.get(`http://localhost:3000/api/reportes/detalleInventario/${depclave}/${selectedDate}`);
           this.inventarioDeptoFecha = response.data;
           console.log('Detalle inventario por depto y fecha', this.actPorDepartamento);
         } catch (error) {
@@ -228,7 +228,7 @@ export default {
     async totalActivos(tipoReporte) {
       // Obtener el total de activos por departamento
       try {
-        const response = await axios.get(`http://localhost:1433/api/reportes/totalActivosPorDepto`);
+        const response = await axios.get(`http://localhost:3000/api/reportes/totalActivosPorDepto`);
         this.totalActPorDepartamento = response.data;
         console.log('Total activos por departamento', this.totalActPorDepartamento);
       } catch (error) {
@@ -263,7 +263,7 @@ export default {
 
       // Obtener los activos por departamento
       try {
-        const response = await axios.get(`http://localhost:1433/api/reportes/activosPorDepto/${depclave}`);
+        const response = await axios.get(`http://localhost:3000/api/reportes/activosPorDepto/${depclave}`);
         this.actPorDepartamento = response.data;
         console.log('Activos por departamento', this.actPorDepartamento);
       } catch (error) {
@@ -468,7 +468,7 @@ export default {
   created() {
     this.detalleReporte = true;
     // Obtener la lista de departamentos
-    axios.get('http://localhost:1433/api/combo/departments')
+    axios.get('http://localhost:3000/api/combo/departments')
       .then(response => {
         this.departamentos = response.data;
       })

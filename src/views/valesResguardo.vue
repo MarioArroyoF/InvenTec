@@ -206,7 +206,7 @@ export default {
       };
 
       // Hacer la solicitud al servidor
-      axios.post('http://localhost:1433/api/vales/guardar', dataToSend)
+      axios.post('http://localhost:3000/api/vales/guardar', dataToSend)
         .then(response => {
           // Manejar la respuesta del servidor si es necesario
           console.log('Vale guardado con éxito:', response.data);
@@ -348,7 +348,7 @@ export default {
     }
   },
   created() {
-    axios.get('http://localhost:1433/api/vales/inventory')
+    axios.get('http://localhost:3000/api/vales/inventory')
       .then(response => {
         this.activos = response.data;
       })
