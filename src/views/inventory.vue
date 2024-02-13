@@ -151,7 +151,7 @@ export default {
   created() {
 
     // Obtener la lista de todas las áreas
-    axios.get('http://localhost:1433/api/combo/areas')
+    axios.get('http://localhost:3000/api/combo/areas')
       .then(response => {
         this.areas = response.data;
       })
@@ -160,7 +160,7 @@ export default {
       });
 
     // Obtener la lista de departamentos
-    axios.get('http://localhost:1433/api/combo/departments')
+    axios.get('http://localhost:3000/api/combo/departments')
       .then(response => {
         this.departamentos = response.data;
       })
@@ -169,7 +169,7 @@ export default {
       });
 
     // Obtener la lista de activos
-    axios.get('http://localhost:1433/api/inventory')
+    axios.get('http://localhost:3000/api/inventory')
       .then(response => {
         this.inventario = response.data;
       })
@@ -204,7 +204,7 @@ export default {
     // Carga los datos de los activos
     cargarActivos() {
       axios
-        .get('http://localhost:1433/api/inventory')
+        .get('http://localhost:3000/api/inventory')
         .then((response) => {
           this.inventario = response.data;
         })
@@ -216,7 +216,7 @@ export default {
     // Consulta activo por su ActId
     cargarDatosActivoPorId(ActId) {
       axios
-        .get(`http://localhost:1433/api/inventory/${ActId}`)
+        .get(`http://localhost:3000/api/inventory/${ActId}`)
         .then((response) => {
 
           // Carga los datos del activo en el formulario
@@ -260,7 +260,7 @@ export default {
     // Actualiza los datos de un activo
     guardarCambios() {
       axios
-        .put(`http://localhost:1433/api/inventory/actualizar/${this.idActivoAEditar}`, this.nuevoActivo)
+        .put(`http://localhost:3000/api/inventory/actualizar/${this.idActivoAEditar}`, this.nuevoActivo)
         .then((response) => {
           // Actualiza el activo en la lista
           const index = this.inventario.findIndex((item) => item.ActId === this.idActivoAEditar);
@@ -344,7 +344,7 @@ export default {
     eliminarActivo() {
       if (this.activoAEliminar) {
         axios
-          .delete(`http://localhost:1433/api/inventory/eliminar/${this.activoAEliminar.ActId}`)
+          .delete(`http://localhost:3000/api/inventory/eliminar/${this.activoAEliminar.ActId}`)
           .then((response) => {
             // Elimina el activo de la lista
             const index = this.inventario.findIndex((item) => item.ActId === this.activoAEliminar.ActId);
@@ -400,7 +400,7 @@ export default {
       }
 
       axios
-        .post('http://localhost:1433/api/inventory/registra', this.nuevoActivo)
+        .post('http://localhost:3000/api/inventory/registra', this.nuevoActivo)
         .then((response) => {
           this.inventario.push(this.nuevoActivo);
           this.nuevoActivo = {

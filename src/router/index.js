@@ -127,7 +127,7 @@ router.beforeEach(async (to, from, next) => {
 
 function obtenTipoUsrSQL(correoElectronico) {
   axios
-    .get(`http://localhost:1433/api/users/validaTipo/${correoElectronico}`)
+    .get(`http://localhost:3000/api/users/validaTipo/${correoElectronico}`)
     .then((response) => {
       UsrTipo = response.data[0].UsrTipo;
 

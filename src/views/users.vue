@@ -109,7 +109,7 @@ export default {
         },
     },
     created() {
-        axios.get('http://localhost:1433/api/users')
+        axios.get('http://localhost:3000/api/users')
             .then(response => {
                 this.usuarios = response.data;
             })
@@ -128,7 +128,7 @@ export default {
         eliminarUsuario() {
             const userId = this.usuarioAEliminar.UsrId;
 
-            axios.delete(`http://localhost:1433/api/users/eliminarUsuario/${userId}`)
+            axios.delete(`http://localhost:3000/api/users/eliminarUsuario/${userId}`)
                 .then((response) => {
                     console.log('Usuario eliminado con éxito:', response.data);
                     this.cargarUsuarios();
@@ -143,7 +143,7 @@ export default {
         },
         actualizarTipoUsuario(usuario) {
             axios
-                .put(`http://localhost:1433/api/users/actualizaTipoUsuario/${usuario.UsrId}`, {
+                .put(`http://localhost:3000/api/users/actualizaTipoUsuario/${usuario.UsrId}`, {
                     UsrTipo: usuario.UsrTipo
                 })
                 .then(response => {
@@ -155,7 +155,7 @@ export default {
         },
         cargarUsuarios() {
             axios
-                .get('http://localhost:1433/api/users')
+                .get('http://localhost:3000/api/users')
                 .then((response) => {
                     this.usuarios = response.data;
                 })
@@ -196,7 +196,7 @@ export default {
 
                     // Registro usuario en SQL
                     axios
-                        .post('http://localhost:1433/api/users/registraUsuario', this.nuevoUsuario)
+                        .post('http://localhost:3000/api/users/registraUsuario', this.nuevoUsuario)
                         .then((response) => {
                             console.log('Usuario registrado en SQL con éxito:', response.data);
                             this.nuevoUsuario = {

@@ -13,7 +13,6 @@ const config = {
   password: '',
   server: '',
   database: '',
-  port:1433,
   options: {
     encrypt: true, 
     trustServerCertificate: true 
@@ -31,7 +30,7 @@ app.use('/', departments(config, sql));
 app.use('/', reports(config, sql));
 app.use('/', vales(config, sql));
 
-const port = 1433;
+const port = 3000;
 app.listen(port, () => {
   console.log(`Servidor en ejecución en el puerto ${port}`);
 });
